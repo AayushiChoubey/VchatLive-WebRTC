@@ -1,3 +1,11 @@
+let APP_ID = 'b34c7b0a937f458cb8f1f448b709cb50';
+
+let token = null;
+let uid = String(Math.floor(Math.random() * 10000))
+
+let client;
+let channel;
+
 let localStream;
 let remoteStream;
 let peerConnection;
@@ -12,11 +20,25 @@ const servers = {
 };
 
 let init = async () => {
+     client = AgoraRTM.createInstance(APP_ID);
+     await client.login({ uid, token});
+
+        channel = client.createChannel('main');
+         await channel.join();
+
+         channel.on('MemberJoined', handleUserJoined);
+
     localStream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
     document.getElementById('user-1').srcObject = localStream;
 
     createOffer();
 }
+
+let handleUserJoined = async (MemberId) => {
+    console.log("User Joined :", MemberId);
+} 
+
+
 
 let createOffer = async () => {
     peerConnection = new RTCPeerConnection();
