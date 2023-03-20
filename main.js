@@ -56,6 +56,11 @@ let createOffer = async (MemberId) => {
     remoteStream = new MediaStream();
     document.getElementById('user-2').srcObject = remoteStream;
 
+    if(!localStream) {
+        localStream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
+        document.getElementById('user-1').srcObject = localStream;
+    }
+
     localStream.getTracks().forEach(track => {
         peerConnection.addTrack(track, localStream);
     });
