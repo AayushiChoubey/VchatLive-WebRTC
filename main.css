@@ -2,6 +2,12 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
+}
+
+body{
+    background-color: #1a1a1a;
+    color: #fff;
 }
 
 #videos{
@@ -39,17 +45,22 @@
 
 #controls{
     position: fixed;
-    bottom: 20px;
+    bottom: 0px;
     left: 50%;
     transform:translateX(-50%);
     display: flex;
     gap: 1em;
+    background-color: rgb(24, 32, 39);
+    width: 100%;
+    justify-content: center;
+    padding: 10px;
+    box-shadow: 0px 0 10px rgba(255, 255, 255, 0.445);   
 }
 
 
 .control-container{
   background-color: rgb(179, 102, 249, .9);
-  padding: 20px;
+  padding: 15px;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -58,8 +69,8 @@
 }
 
 .control-container img{
-    height: 30px;
-    width: 30px;
+    height: 25px;
+    width: 25px;
 }
 
 #leave-btn{
