@@ -6,14 +6,17 @@
 
 #videos{
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2em;
+    grid-template-columns: 1fr;
+    height: 100vh;
+    overflow:hidden;
 }
 
 .video-player{
     background-color: black;
-    width: 100%;
-    height: 300px;
+    width: 60%;
+    height: 80%;
+    margin: 0 auto;
+    object-fit: cover;
 }
 
 #user-2{
